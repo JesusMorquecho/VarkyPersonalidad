@@ -1,0 +1,25 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/registro" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">registro</a>
+        <a class="nav-item nav-link" routerLink="/contacto" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">reportar bugs</a>
+        <a class="nav-item nav-link" routerLink="/admin" routerLinkActive="active" *ngIf="isAdmin">Admin</a>
+        <button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- credits -->
+<div class="text-center mt-4">
+    <p>
+        <a href="https://jasonwatmore.com/post/2022/12/22/angular-14-role-based-authorization-tutorial-with-example" target="_blank">Angular 14 - Role Based Authorization Tutorial with Example</a>
+    </p>
+    <p>
+        <a href="https://jasonwatmore.com" target="_blank">JasonWatmore.com</a>
+    </p>
+</div>

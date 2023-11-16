@@ -1,0 +1,12 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="firstName" placeholder="Nombre" required>
+    <input type="text" formControlName="lastName" placeholder="Apellido" required>
+    <div>
+        <input type="email" formControlName="correo" placeholder="Correo" [class.invalid-field]="userForm.controls.correo.invalid && (userForm.controls.correo.dirty || userForm.controls.correo.touched)" required>
+        <span *ngIf="userForm.controls.correo.invalid && (userForm.controls.correo.dirty || userForm.controls.correo.touched)" class="error-message">
+          Debe ser un correo válido.
+        </span>
+      </div>
+        <button type="submit" [disabled]="!userForm.valid || !userForm.get('firstName')?.valid || !userForm.get('lastName')?.valid || !userForm.get('correo')?.valid">Enviar</button>
+</form>
+  
