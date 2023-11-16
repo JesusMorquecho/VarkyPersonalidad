@@ -23,7 +23,8 @@ import { FormContactComponent } from './form-contact/form-contact.component';
         HttpClientModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        HttpClientModule 
+        HttpClientModule ,
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
@@ -31,7 +32,8 @@ import { FormContactComponent } from './form-contact/form-contact.component';
         AdminComponent,
         LoginComponent,
         UserComponent,
-        FormContactComponent
+        FormContactComponent,
+        LoginComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
