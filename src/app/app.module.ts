@@ -15,6 +15,7 @@ import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import { UserComponent } from './user/user.component';
 import { FormContactComponent } from './form-contact/form-contact.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { FormContactComponent } from './form-contact/form-contact.component';
         LoginComponent,
         UserComponent,
         FormContactComponent,
-        LoginComponent
+        LoginComponent,
+        FormComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
