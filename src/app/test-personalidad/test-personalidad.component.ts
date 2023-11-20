@@ -368,7 +368,7 @@ export class TestPersonalidadComponent implements OnInit {
       this.router.navigate(['/test-personalidad']);
     } else {
       console.log('Redirigiendo al Home...');
-      this.router.navigate(['']);
+      this.router.navigate(['/home']);
     }
   }
 }

@@ -33,11 +33,11 @@ export class AuthGuard implements CanActivate {
             // Check the individual test routes
             if (state.url.includes('test-vark') && testVarkCompleted) {
                 // If trying to access VARK test but it's completed, redirect to Personalidad test or home
-                this.router.navigate([testPersonalidadCompleted ? '' : '/test-personalidad']);
+                this.router.navigate([testPersonalidadCompleted ? '/home' : '/test-personalidad']);
                 return false;
             } else if (state.url.includes('test-personalidad') && testPersonalidadCompleted) {
                 // If trying to access Personalidad test but it's completed, redirect to home
-                this.router.navigate([testPersonalidadCompleted ? '' : '/test-vark']);
+                this.router.navigate([testPersonalidadCompleted ? '/home' : '/test-vark']);
                 return false;
             }
 

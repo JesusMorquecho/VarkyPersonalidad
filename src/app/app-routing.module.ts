@@ -9,6 +9,7 @@ import { Role } from './_models';
 import { TestVarkComponent } from './test-vark/test-vark.component';
 import { TestPersonalidadComponent } from './test-personalidad/test-personalidad.component';
 import { UserComponent } from './user/user.component';
+import { GetemailComponent } from './getemail/getemail.component';
 
 const routes: Routes = [
     {
@@ -33,6 +34,10 @@ const routes: Routes = [
     {
         path: 'form-contact',
         component: FormContactComponent,
+        canActivate:[AuthGuard]
+    },{
+        path: 'getbyemail',
+        component: GetemailComponent,
         canActivate:[AuthGuard]
     },
     {

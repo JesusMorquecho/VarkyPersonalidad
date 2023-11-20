@@ -1,0 +1,47 @@
+<!-- getemail.component.html -->
+
+<div>
+  <input type="text" [(ngModel)]="email" placeholder="Enter email" />
+  <button (click)="getUserByEmail()">Get User Data</button>
+</div>
+
+<div *ngIf="user">
+  <p><strong>ID:</strong> {{ user.id }}</p>
+  <p><strong>First Name:</strong> {{ user.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ user.lastName }}</p>
+
+</div>
+
+
+<div *ngIf="preguntas">
+  <h3>respuestas test de personalidad</h3>
+  <p><strong>1.º apartado de preguntas realizadas :</strong> {{ preguntas.respuestaE }}</p>
+  <p><strong>2.º apartado de preguntas realizadas :</strong> {{ preguntas.respuestaI }}</p>
+  <p><strong>3.º apartado de preguntas realizadas :</strong> {{ preguntas.respuestaS }}</p>
+  <p><strong>4.º apartado de preguntas realizadas :</strong> {{ preguntas.respuestaIn }}</p>
+  <p><strong>Resultado de personalidad :</strong> {{ preguntas.total }}</p>
+</div>
+
+
+<div *ngIf="varkResponses">
+  <h3>respuestas test de Vark</h3>
+  <p><strong>Respuesta de la 1.º pregunta realizada:</strong> {{ varkResponses.respuesta1 }}</p>
+  <p><strong>Respuesta de la 2.º pregunta realizada:</strong> {{ varkResponses.respuesta2 }}</p>
+  <p><strong>Respuesta de la 3.º pregunta realizada:</strong> {{ varkResponses.respuesta3 }}</p>
+  <p><strong>Respuesta de la 4.º pregunta realizada:</strong> {{ varkResponses.respuesta4 }}</p>
+  <p><strong>Respuesta de la 5.º pregunta realizada:</strong> {{ varkResponses.respuesta5 }}</p>
+  <p><strong>Respuesta de la 6.º pregunta realizada:</strong> {{ varkResponses.respuesta6 }}</p>
+  <p><strong>Respuesta de la 7.º pregunta realizada:</strong> {{ varkResponses.respuesta7 }}</p>
+  <p><strong>Respuesta de la 8.º pregunta realizada:</strong> {{ varkResponses.respuesta8 }}</p>
+  <p><strong>Respuesta de la 9.º pregunta realizada:</strong> {{ varkResponses.respuesta9 }}</p>
+  <p><strong>Respuesta de la 10.º pregunta realizada:</strong> {{ varkResponses.respuesta10 }}</p>
+  <p><strong>Respuesta de la 11.º pregunta realizada:</strong> {{ varkResponses.respuesta11 }}</p>
+  <p><strong>Respuesta de la 12.º pregunta realizada:</strong> {{ varkResponses.respuesta12 }}</p>
+  <p><strong>Respuesta de la 13.º pregunta realizada:</strong> {{ varkResponses.respuesta13 }}</p>
+  <p><strong>Respuesta de la 14.º pregunta realizada:</strong> {{ varkResponses.respuesta14 }}</p>
+  <p><strong>Respuesta de la 15.º pregunta realizada:</strong> {{ varkResponses.respuesta15 }}</p>
+  <p><strong>Respuesta de la 16.º pregunta realizada:</strong> {{ varkResponses.respuesta16}}</p>
+  <p><strong>puntuacion dn cada apartado Visual, Aural, Lector, Kinestesico</strong> {{ varkResponses.custom}}</p>
+  <p><strong>Resultado de personalidad:</strong> {{ getPersonalidadDescription(varkResponses.total) }}</p>
+
+</div>

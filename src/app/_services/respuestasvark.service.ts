@@ -10,4 +10,7 @@ export class RespuestasvarkService {
   enviarRespuestas(respuestas: any): Observable<any> {
     return this.http.post(this.apiUrl, respuestas);
   }
+  getPreguntasVarkById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
 }
