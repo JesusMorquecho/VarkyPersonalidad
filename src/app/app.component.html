@@ -1,0 +1,17 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/admin" routerLinkActive="active" *ngIf="isAdmin">Admin</a>
+        <a class="nav-item nav-link" routerLink="/form-contact" routerLinkActive="active" >Contact Form</a>  
+        <a class="nav-item nav-link" routerLink="/registro" routerLinkActive="active">registro</a>
+        <a class="nav-item nav-link" routerLink="/test-vark" routerLinkActive="active" >Vark Test</a>  
+        <a class="nav-item nav-link" routerLink="/test-personalidad" routerLinkActive="active" >Personalidad Test</a>  
+        <button class="btn btn-link nav-item nav-link" (click)="logout()">admin</button>
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

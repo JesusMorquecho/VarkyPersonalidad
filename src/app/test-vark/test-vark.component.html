@@ -1,0 +1,87 @@
+<!-- test-vark.component.html -->
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center">El modelo VARK: instrumento diseñado para
+            identificar estilos de enseñanza-aprendizaje</h1>
+        <p class="text-center">
+            Neil Fleming en colaboración con Collen Mills en 1992, desarrollaron un
+            instrumento sencillo para determinar las preferencias de modalidad
+            sensorial
+            ala hora de procesar información. Más que ser una herramienta de
+            diagnóstico, se pretendía que el instrumento sirviera como un
+            catalizador
+            para la reflexión: a partir de los comentarios como “qihaaal, ahora
+            entiendo
+            porque aprendo más rápido y mejor cuando estoy en ciertas
+            situaciones...” a
+            este instrumento lo llamaron VARK (Visual, Aural, Read/Write,
+            Kinesthetic por
+            su siglas en inglés) (Visual, Auditivo, Lectura/Escritura y
+            Quinestésico) De
+            Acuerdo a resultados de estudios realizados en algunos países con el
+            empleo
+            del VARK, hubo un aprovechamiento notorio en los estudiantes debido a
+            que
+            los profesores detectaron las preferencias de enseñanza de acuerdo a los
+            estilos de aprendizaje de los alumnos.
+    
+            La vista, el oído y el movimiento marcan nuestros primeros
+            aprendizajes y una vez adquirida la habilidad lecto-escritora, este
+            punto se
+            convierte en otro pilar de adquisición y filtro de la información.
+            (Lozano, 2004)
+    
+            El modelo VARK-Visual, Aural, Read/Write, Kinesthetic- retoma estas
+            formas de apropiación y genera una respuesta ante las necesidades de
+            quienes viven el proceso educativo, y a lo largo del trabajo en el tema
+            descubrirán la forma de llevarlo al aula para fomentar el aprendizaje.
+    
+            Inicialmente el instrumento constaba de 13 preguntas con tres y cuatro
+            posibles respuestas, posteriormente en septiembre de 2006 con la
+            intención
+            de darle mayor confiabilidad al instrumento se le realizó una
+            modificación
+            incrementándose a 16 preguntas con 4 respuestas cada una. (Fleming,
+            2006)
+        </p>
+        <hr>
+        <p class="text-center">
+            Instrucciones: circule la letra de la respuesta que mejor explica
+            su preferencia, seleccione más de una respuesta si una sola no encaja
+            con si percepción.Deje en blanco toda pregunta que no se aplique.
+        </p>
+      </div>
+    </div>
+<div class="container mt-3">
+    <form>
+      <div class="row" *ngFor="let pregunta of preguntas; let i = index">
+        <div class="col-12">
+          <div class="card my-2">
+            <div class="card-body">
+              <h5 class="card-title">Pregunta {{ i + 1 }}</h5>
+              <p class="card-text">{{ pregunta.texto }}</p>
+              <div class="form-group">
+                <div class="form-check" *ngFor="let opcion of pregunta.opciones; let j = index">
+                  <input class="form-check-input" type="checkbox" 
+                         [id]="'pregunta' + (i + 1) + getLetra(j)" 
+                         (change)="onCheckboxChange($event, (i + 1), getLetra(j))">
+                  <label class="form-check-label" 
+                         [for]="'pregunta' + (i + 1) + getLetra(j)">
+                    {{ opcion }}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+            <button (click)="enviarRespuestas()" class="btn btn-primary">Enviar</button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+  

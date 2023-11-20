@@ -1,0 +1,225 @@
+<!-- test-personalidad.component.html -->
+<div class="container mt-5">
+    <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+        <h1>Test basado en la tipología de Jung y Meyers-Briggs</h1>
+        <p class="text-center">
+            Instrucciones para resolver la prueba de Personalidad: Evalúe cada
+            par de opciones de las columnas A y C usando del 0 al 10 para
+            calificar la que mejor le describe. Podrá sentirse identificado con
+            cualidades de ambas columnas, pero tiene 10 puntos para repartir
+            entre cada una de las dos opciones sin utilizar el numero 5.
+        </p>
+
+        <!-- Extrovertidos e Introvertidos -->
+        <h2>1. Energía, focalizacion y actitud vital</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Extrovertidos</th>
+                        <th>Puntos</th>
+                        <th>Introvertidos</th>
+                        <th>Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Repite este bloque para cada afirmación -->
+                    <tr *ngFor="let item of items; let i = index">
+                        <td>{{ item.extrovertido }}</td>
+                        <td>
+                            <select class="form-control" formControlName="extrovertidoPuntos{{i}}" (change)="actualizarPuntosExtrovertidoIntrovertido(i, true)">
+                                <option value="" disabled selected>Selecciona puntos</option>
+                                <option *ngFor="let num of puntos" [value]="num">{{
+                                    num }}</option>
+                            </select>
+                            <div *ngIf="testForm.get('extrovertidoPuntos' + i)?.touched && testForm.get('extrovertidoPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                Debes seleccionar una cantidad de puntos.
+                              </div>
+                        </td>
+                        <td>{{ item.introvertido }}</td>
+                        <td>
+                            <select class="form-control" formControlName="introvertidoPuntos{{i}}" (change)="actualizarPuntosExtrovertidoIntrovertido(i, false)">
+                                <option value disabled selected>Selecciona
+                                    puntos</option>
+                                <option *ngFor="let num of puntos" [value]="num">{{
+                                    num }}</option>
+                            </select>
+                            <div *ngIf="testForm.get('introvertidoPuntos' + i)?.touched && testForm.get('introvertidoPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                Debes seleccionar una cantidad de puntos.
+                              </div>
+                        </td>
+                    </tr>
+                    <!-- Fin del bloque repetido por cada afirmación -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <td>Total Extrovertidos</td>
+                      <td>{{ totalExtrovertidos }}</td>
+                      <td>Total Introvertidos</td>
+                      <td>{{ totalIntrovertidos }}</td>
+                    </tr>
+                  </tfoot>
+            </table>
+        </div>
+
+        <h2>2. Manejo de la información actitud ante el entorno</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sensorial</th>
+                        <th>Puntos</th>
+                        <th>Intuitivo</th>
+                        <th>Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let item of itemsSensorialIntuitivo; let i = index">
+                        <td>{{ item.sensorial }}</td>
+                        <td>
+                            <select class="form-control" formControlName="sensorialPuntos{{i}}" (change)="actualizarPuntosSensorialIntuitivo(i, true)">
+                                <option value="" disabled selected>Selecciona puntos</option>
+                                <option *ngFor="let num of puntos" [value]="num">{{
+                                    num }}</option>
+                            </select>
+                            <div *ngIf="testForm.get('sensorialPuntos' + i)?.touched && testForm.get('sensorialPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                Debes seleccionar una cantidad de puntos.
+                              </div>
+                        </td>
+                        <td>{{ item.intuitivo }}</td>
+                        <td>
+                            <select class="form-control" formControlName="intuitivoPuntos{{i}}" (change)="actualizarPuntosSensorialIntuitivo(i, false)">
+                                <option value disabled selected>Selecciona
+                                    puntos</option>
+                                <option *ngFor="let num of puntos" [value]="num">{{
+                                    num }}</option>
+                            </select>
+                            <div *ngIf="testForm.get('intuitivoPuntos' + i)?.touched && testForm.get('intuitivoPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                Debes seleccionar una cantidad de puntos.
+                              </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <td>Total Sensorial</td>
+                      <td>{{ totalSensorial }}</td>
+                      <td>Total Intuitivo</td>
+                      <td>{{ totalIntuitivo }}</td>
+                    </tr>
+                  </tfoot>
+            </table>
+
+            <!-- Racional y Emocional -->
+            <h2>3. Actitud y toma de decisiones</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Racional</th>
+                            <th>Puntos</th>
+                            <th>Emocional</th>
+                            <th>Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let item of itemsRacionalEmocional; let i = index">
+                            <td>{{ item.racional }}</td>
+                            <td>
+                                <select class="form-control" formControlName="racionalPuntos{{i}}" (change)="actualizarPuntosRacionalEmocional(i, true)">
+                                    <option value="" disabled selected>Selecciona puntos</option>
+                                    <option *ngFor="let num of puntos"
+                                        [value]="num">{{ num }}</option>
+                                </select>
+                                <div *ngIf="testForm.get('racionalPuntos' + i)?.touched && testForm.get('racionalPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                    Debes seleccionar una cantidad de puntos.
+                                  </div>
+                            </td>
+                            <td>{{ item.emocional }}</td>
+                            <td>
+                                <select class="form-control" formControlName="emocionalPuntos{{i}}" (change)="actualizarPuntosRacionalEmocional(i, false)">
+                                    <option value disabled selected>Selecciona
+                                        puntos</option>
+                                    <option *ngFor="let num of puntos"
+                                        [value]="num">{{ num }}</option>
+                                </select>
+                                <div *ngIf="testForm.get('emocionalPuntos' + i)?.touched && testForm.get('emocionalPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                    Debes seleccionar una cantidad de puntos.
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <td>Total Racional</td>
+                          <td>{{ totalRacional }}</td>
+                          <td>Total Emocional</td>
+                          <td>{{ totalEmocional }}</td>
+                        </tr>
+                      </tfoot>
+                </table>
+            </div>
+
+            <!-- Calificador y Perceptivo -->
+            <h2>4. Ambiente de trabajo, estilo de vida en el entorno e
+                interacción</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Calificador</th>
+                            <th>Puntos</th>
+                            <th>Perceptivo</th>
+                            <th>Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let item of itemsCalificadorPerceptivo; let i = index">
+                            <td>{{ item.calificador }}</td>
+                            <td>
+                                <select class="form-control" formControlName="calificadorPuntos{{i}}" (change)="actualizarPuntosCalificadorPerceptivo(i, true)">
+                                    <option value="" disabled selected>Selecciona puntos</option>
+                                    <option *ngFor="let num of puntos"
+                                        [value]="num">{{ num }}</option>
+                                </select>
+                                <div *ngIf="testForm.get('calificadorPuntos' + i)?.touched && testForm.get('calificadorPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                    Debes seleccionar una cantidad de puntos.
+                                  </div>
+                            </td>
+                            <td>{{ item.perceptivo }}</td>
+                            <td>
+                                <select class="form-control" formControlName="perceptivoPuntos{{i}}" (change)="actualizarPuntosCalificadorPerceptivo(i, false)">
+                                    <option value disabled selected>Selecciona
+                                        puntos</option>
+                                    <option *ngFor="let num of puntos"
+                                        [value]="num">{{ num }}</option>
+                                </select>
+                                <div *ngIf="testForm.get('perceptivoPuntos' + i)?.touched && testForm.get('perceptivoPuntos' + i)?.errors?.defaultOption" class="alert alert-danger">
+                                    Debes seleccionar una cantidad de puntos.
+                                  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                          <td>Total Calificador</td>
+                          <td>{{ totalCalificador }}</td>
+                          <td>Total Perceptivo</td>
+                          <td>{{ totalPerceptivo }}</td>
+                        </tr>
+                      </tfoot>
+                </table>
+            </div>
+            <!-- Botón de envío de formulario -->
+            <div class="row">
+                <div class="col text-center mb-3">
+                    <button type="submit" class="btn btn-primary">Enviar
+                        Respuestas</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
