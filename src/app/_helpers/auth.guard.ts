@@ -37,7 +37,7 @@ export class AuthGuard implements CanActivate {
                 return false;
             } else if (state.url.includes('test-personalidad') && testPersonalidadCompleted) {
                 // If trying to access Personalidad test but it's completed, redirect to home
-                this.router.navigate([testPersonalidadCompleted ? '/home' : '/test-vark']);
+                this.router.navigate([testPersonalidadCompleted ? '' : '/test-vark']);
                 return false;
             }
 
