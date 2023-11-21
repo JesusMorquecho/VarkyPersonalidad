@@ -5,6 +5,7 @@ import { RespuestasvarkService } from '@app/_services/respuestasvark.service';
 import { UserService } from '@app/_services/usuario.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import Swal from 'sweetalert2'; // Importa SweetAlert2
  
 @Component({
   selector: 'app-getemail',
@@ -120,10 +121,16 @@ export class GetemailComponent {
         console.error('Error: No se encontró el elemento con ID user-data-container.');
       }
     } else {
-      alert('Por favor, primero busque los datos del usuario.');
+      // Aquí se usa SweetAlert en lugar de la alerta por defecto
+      Swal.fire({
+        icon: 'error',
+        title: 'Datos faltantes',
+        text: 'Por favor, primero busque los datos del usuario.',
+      });
       console.log('Datos de usuario, preguntas o respuestas VARK faltantes.');
     }
   }
  
  
 }
+ 

@@ -1,13 +1,18 @@
-﻿<div class="card mt-4">
-    <h4 class="card-header">Home</h4>
+﻿<div class="card mt-4 shadow-sm">
+    <h4 class="card-header bg-primary text-white">Tests de Aprendizaje y Personalidad</h4>
     <div class="card-body">
-        <p>You're logged in with Angular 14 & JWT!!</p>
-        <p>Your role is: <strong>{{user.role}}</strong>.</p>
-        <p>This page can be accessed by <u>all authenticated users</u>.</p>
-        <p class="mb-1">Current user from secure api end point:</p>
-        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-        <ul *ngIf="userFromApi">
-            <li>{{userFromApi.firstName}} {{userFromApi.lastName}}</li>
-        </ul>
+        <div class="mb-3">
+            <h5 class="card-title">Test VARK</h5>
+            <p class="card-text">
+                El Test VARK clasifica los estilos de aprendizaje en Visual, Auditivo, Lectura/Escritura y Kinestésico para ayudarte a comprender mejor tus preferencias de aprendizaje.
+            </p>
+        </div>
+        <div class="mb-3">
+            <h5 class="card-title">Test de Myers-Briggs</h5>
+            <p class="card-text">
+                El Indicador de Tipo Myers-Briggs (MBTI) es una herramienta de autoevaluación psicológica que proporciona insights sobre diferentes personalidades y preferencias de comportamiento.
+            </p>
+        </div>
     </div>
+
 </div>
