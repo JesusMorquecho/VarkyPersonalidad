@@ -15,4 +15,7 @@ export class PreguntasJmService {
   getPreguntasById(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
+  getPreguntasPersonalidadList(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/Lista`);
+  }
 }

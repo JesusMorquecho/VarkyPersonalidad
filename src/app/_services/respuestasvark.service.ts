@@ -13,4 +13,7 @@ export class RespuestasvarkService {
   getPreguntasVarkById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+  getPreguntasVarkList(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/Lista`);
+  }
 }

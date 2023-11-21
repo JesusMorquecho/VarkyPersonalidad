@@ -18,4 +18,7 @@ export class UserService {
     const url = `${this.apiUrl}/GetLatestByEmail/${email}`;
     return this.http.get(url); // Esto devolverá un Observable al cual te puedes suscribir en el componente
   }
+  getPreguntasVarkList(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
+  }
 }

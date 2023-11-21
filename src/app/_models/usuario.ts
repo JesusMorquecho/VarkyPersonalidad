@@ -15,4 +15,13 @@ export class User {
       custom: string;
     };
   }
+  export interface PreguntaJm {
+    id: number;
+    respuestaE: string;
+    respuestaI: string;
+    respuestaS: string;
+    respuestaIn: string;
+    total: string;
+    custom: string;
+  }
   

@@ -331,13 +331,13 @@ export class TestVarkComponent implements OnInit {
       this.router.navigate(['/test-personalidad']);
     } else {
       console.log('Redirigiendo al Home...');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/registro']);
     }
   }                                                  
 
   ngOnInit(): void {
     if (this.sharedDataService.getTestVarkCompleted() && this.sharedDataService.getTestPersonalidadCompleted()) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['']);
     }
   }
 

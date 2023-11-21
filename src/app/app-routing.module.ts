@@ -10,6 +10,8 @@ import { TestVarkComponent } from './test-vark/test-vark.component';
 import { TestPersonalidadComponent } from './test-personalidad/test-personalidad.component';
 import { UserComponent } from './user/user.component';
 import { GetemailComponent } from './getemail/getemail.component';
+import { DashboardvarkComponent } from './dashboardVark/dashboardvark/dashboardvark.component';
+import { DashboardpersonalidadComponent } from './dashboardpersonalidad/dashboardpersonalidad.component';
 
 const routes: Routes = [
     {
@@ -48,6 +50,14 @@ const routes: Routes = [
     {
         path: 'test-personalidad',
         component: TestPersonalidadComponent,
+        canActivate:[AuthGuard]
+    },{
+        path: 'dashboard-vark',
+        component: DashboardvarkComponent,
+        canActivate:[AuthGuard]
+    },{
+        path: 'dashboard-personalidad',
+        component: DashboardpersonalidadComponent,
         canActivate:[AuthGuard]
     },
 

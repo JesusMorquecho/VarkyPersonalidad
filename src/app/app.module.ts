@@ -19,6 +19,8 @@ import { TestPersonalidadComponent } from './test-personalidad/test-personalidad
 import { UserComponent } from './user/user.component';
 import { RespuestasvarkService } from './_services/respuestasvark.service';
 import { GetemailComponent } from './getemail/getemail.component';
+import { DashboardvarkComponent } from './dashboardVark/dashboardvark/dashboardvark.component';
+import { DashboardpersonalidadComponent } from './dashboardpersonalidad/dashboardpersonalidad.component';
 
 
 @NgModule({
@@ -34,8 +36,8 @@ import { GetemailComponent } from './getemail/getemail.component';
         HomeComponent,
         AdminComponent,
         LoginComponent,
-        FormContactComponent,GetemailComponent,
-        TestVarkComponent,UserComponent,
+        FormContactComponent,GetemailComponent,DashboardpersonalidadComponent,
+        TestVarkComponent,UserComponent,DashboardvarkComponent,
         TestPersonalidadComponent
     ],
     providers: [
