@@ -16,14 +16,14 @@ export class UserComponent implements OnInit {
 
   constructor(private router: Router,private fb: FormBuilder, private userService: UserService,private sharedDataService: SharedDataService) {}
 
+ 
   ngOnInit() {
     this.userForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.maxLength(20)]],
-      lastName: ['', [Validators.required, Validators.maxLength(20)]],
-      email: ['', [Validators.required, Validators.email,Validators.maxLength(20)]]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
     });
-  }
-  onSubmit() {
+  } onSubmit() {
     if (this.userForm.valid) {
       this.userService.createUser(this.userForm.value).subscribe(
         response => {
